@@ -4,6 +4,15 @@
 
 Alamofire is an HTTP networking library written in Swift, from the [creator](https://github.com/mattt) of [AFNetworking](https://github.com/afnetworking/afnetworking).
 
+## Note: Xcode 6.3 Beta and Swift 1.2 support
+
+This is a temporary branch by @tmu to support Alamofire on Xcode 6.3 Beta and Swift 1.2. It fixes compilation errors and warnings. It is based on the 1.1.4 version of Alamofire.
+
+To use it on your project, replace Alamofire pod definition in your Podfile with
+
+    pod 'Alamofire', :git => 'https://github.com/tmu/Alamofire.git', :branch => 'xcode6.3-fixes'
+
+
 ## Features
 
 - [x] Chainable Request / Response methods
