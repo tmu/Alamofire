@@ -68,7 +68,7 @@ public enum ParameterEncoding {
 
     /**
         Creates a URL request by encoding parameters and applying them onto an existing request.
-    
+
         :param: URLRequest The request to have parameters applied
         :param: parameters The parameters to apply
 
@@ -352,7 +352,7 @@ public class Manager {
 
                 return subdelegate
             }
-            
+
             set {
                 dispatch_barrier_async(subdelegateQueue) {
                     self.subdelegates[task.taskIdentifier] = newValue
@@ -603,7 +603,7 @@ public class Request {
 
         :returns: The request.
     */
-    public func progress(closure: ((Int64, Int64, Int64) -> Void)? = nil) -> Self {
+    public func progress(closure: ((Int64, Int64, Int64) -> Void)? /*= nil*/) -> Self {
         if let uploadDelegate = delegate as? UploadTaskDelegate {
             uploadDelegate.uploadProgress = closure
         } else if let dataDelegate = delegate as? DataTaskDelegate {
@@ -973,7 +973,7 @@ extension Request {
 
             return ["*/*"]
         }()
-        
+
         return validate(statusCode: acceptableStatusCodes).validate(contentType: acceptableContentTypes)
     }
 }
@@ -1155,7 +1155,7 @@ extension Request {
 
     /**
         Creates a download file destination closure which uses the default file manager to move the temporary file to a file URL in the first available directory with the specified search path directory and search path domain mask.
-    
+
         :param: directory The search path directory. `.DocumentDirectory` by default.
         :param: domain The search path domain mask. `.UserDomainMask` by default.
 
@@ -1292,7 +1292,7 @@ extension Request: DebugPrintable {
                 }
             }
         }
-        
+
         if let HTTPBody = request.HTTPBody {
             if let escapedBody = NSString(data: HTTPBody, encoding: NSUTF8StringEncoding)?.stringByReplacingOccurrencesOfString("\"", withString: "\\\"") {
                 components.append("-d \"\(escapedBody)\"")
